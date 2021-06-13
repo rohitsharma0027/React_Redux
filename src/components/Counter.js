@@ -5,6 +5,7 @@ const Counter = () => {
   // Here we are fetching the  value of the counter from our redux store i.e. use Slector hook is usually used to
   // fetch the values of the store states to our component
   const counter = useSelector(state => state.counter)
+  const show = useSelector(state =>state.showCounter)
 
   // useDispatch hook is used to dipatch the actions from our component to the reducer function, present in our store
   // usually useDispatch return a function which can be use by us to dispatch our actions
@@ -23,12 +24,14 @@ const Counter = () => {
     dispatch({type:'decrement'})
   }
 
-  const toggleCounterHandler = () => {};
+  const toggleCounterHandler = () => {
+    dispatch({type:'toggle'})
+  };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>{counter}</div>
+       {show && <div className={classes.value}>{counter}</div>}
       <div>
         <button onClick={incrementHandler}>Increment</button>
         <button onClick={increaseHandler}>Increment by 5</button>
