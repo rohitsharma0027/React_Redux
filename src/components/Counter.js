@@ -1,6 +1,8 @@
 import classes from './Counter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { INCREMENT, DECREMENT, INCREASE } from '../store';
+
 const Counter = () => {
   // Here we are fetching the  value of the counter from our redux store i.e. use Slector hook is usually used to
   // fetch the values of the store states to our component
@@ -13,15 +15,15 @@ const Counter = () => {
 
   const incrementHandler = () =>
   {
-    dispatch({type:'increment'})
+    dispatch({type:INCREMENT})
   }
 
   const increaseHandler = () =>{
-    dispatch({type:'increase',amount:5})
+    dispatch({type:INCREASE,amount:5})
   }
 
   const decrementHandler = () =>{
-    dispatch({type:'decrement'})
+    dispatch({type:DECREMENT})
   }
 
   const toggleCounterHandler = () => {
