@@ -4,13 +4,11 @@ import {createStore} from 'redux';
 const initialState = { counter:0, showCounter:true }
 
 // UNique indentifier to keep application simple while the app grows
-export const INCREMENT = 'increment';
-export const DECREMENT = 'decrement';
-export const INCREASE  = 'increase';
+// export const INCREMENT ='increment';
 
 // Step 2: Create the reducer function
 const counterReducer = (state = initialState,action) => {
-    if(action.type === INCREMENT)
+    if(action.type === 'increment')
     {
         return {
             counter : state.counter+1,
@@ -18,7 +16,7 @@ const counterReducer = (state = initialState,action) => {
         }
     }
 
-    if(action.type === INCREASE)
+    if(action.type === 'increase')
     {
         return{
             counter : state.counter+action.amount,
@@ -26,7 +24,7 @@ const counterReducer = (state = initialState,action) => {
         }
     }
 
-    if(action.type === DECREMENT)
+    if(action.type === 'decrement')
     {
         return{
             counter : state.counter-1,
